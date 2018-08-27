@@ -99,6 +99,8 @@ open class SwiftyCamViewController: UIViewController {
 
 	/// Video capture quality
 
+    public var canRecordingVideo: Bool = true
+    
 	public var videoQuality : VideoQuality       = .high
 
 	/// Sets whether flash is enabled for photo and video capture
@@ -640,7 +642,9 @@ open class SwiftyCamViewController: UIViewController {
 		session.beginConfiguration()
 		configureVideoPreset()
 		addVideoInput()
-		addAudioInput()
+        if canRecordingVideo {
+            addAudioInput()
+        }
 		configureVideoOutput()
 		configurePhotoOutput()
 
@@ -653,7 +657,9 @@ open class SwiftyCamViewController: UIViewController {
 		session.beginConfiguration()
 		configureVideoPreset()
 		addVideoInput()
-		addAudioInput()
+        if canRecordingVideo {
+            addAudioInput()
+        }
 		session.commitConfiguration()
 	}
 
