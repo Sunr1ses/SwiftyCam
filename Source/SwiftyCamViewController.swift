@@ -332,21 +332,21 @@ open class SwiftyCamViewController: UIViewController {
             if previewLayerConnection.isVideoOrientationSupported {
 
                 switch (orientation) {
-                case .portrait: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
-
-                    break
-
-                case .landscapeRight: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
-
-                    break
-
-                case .landscapeLeft: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
-
-                    break
-
-                case .portraitUpsideDown: updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
-
-                    break
+//                case .portrait: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+//
+//                    break
+//
+//                case .landscapeRight: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+//
+//                    break
+//
+//                case .landscapeLeft: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+//
+//                    break
+//
+//                case .portraitUpsideDown: updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
+//
+//                    break
 
                 default: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
 
