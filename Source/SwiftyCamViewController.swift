@@ -174,6 +174,8 @@ open class SwiftyCamViewController: UIViewController {
     /// Public access to Pan Gesture
     fileprivate(set) public var panGesture    : UIPanGestureRecognizer!
 
+    fileprivate var originalAudioSessionCategoryOptions: AVAudioSessionCategoryOptions?
+    fileprivate var originalAudioSessionCategory: String?
 
 	// MARK: Public Get-only Variable Declarations
 
@@ -433,6 +435,10 @@ open class SwiftyCamViewController: UIViewController {
 		if shouldUseDeviceOrientation {
 			orientation.stop()
 		}
+        
+        if let category = originalAudioSessionCategory, let options = originalAudioSessionCategoryOptions {
+            try? AVAudioSession.sharedInstance().setCategory(category, with: options)
+        }
 	}
 
 	// MARK: Public Functions
@@ -988,6 +994,8 @@ open class SwiftyCamViewController: UIViewController {
             return
         }
 
+        self.originalAudioSessionCategoryOptions = AVAudioSession.sharedInstance().categoryOptions
+        self.originalAudioSessionCategory = AVAudioSession.sharedInstance().category
 		do{
             if #available(iOS 10.0, *) {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord,
